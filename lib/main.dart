@@ -1,3 +1,4 @@
+import 'package:float_column_alternative/tooltip.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -35,7 +36,9 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const Text("data"),
+      body: const Center(
+        child: TooltipButton(),
+      ),
     );
   }
 }
