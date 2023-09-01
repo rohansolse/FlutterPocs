@@ -37,7 +37,22 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       body: const Center(
-        child: TooltipButton(),
+        child: Tooltip(
+          message: 'This message is from tooltip...',
+          padding: EdgeInsets.all(20),
+          showDuration: Duration(seconds: 10),
+          decoration: ShapeDecoration(
+            color: Colors.grey,
+            shape: ToolTipCustomShape(),
+          ),
+          textStyle: TextStyle(color: Colors.white),
+          preferBelow: false,
+          verticalOffset: 20,
+          child: IconButton(
+            icon: Icon(Icons.info, size: 30.0),
+            onPressed: null,
+          ),
+        ),
       ),
     );
   }
