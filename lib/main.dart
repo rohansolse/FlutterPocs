@@ -1,4 +1,4 @@
-import 'package:float_column_alternative/image_view.dart';
+import 'package:float_column_alternative/snack_bar.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -33,11 +33,12 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: const ImageView(),
-    );
+        appBar: AppBar(
+          backgroundColor: Theme.of(context).colorScheme.inversePrimary,
+          title: Text(widget.title),
+        ),
+        body: const ShowSnackBar(
+          snackText: 'Yay! A SnackBar at the top!',
+        ));
   }
 }
