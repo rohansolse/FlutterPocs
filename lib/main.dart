@@ -1,5 +1,4 @@
-import 'package:float_column_alternative/constants.dart';
-import 'package:float_column_alternative/expandable_text.dart';
+import 'package:float_column_alternative/image_view.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -38,7 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const ExpandableText(text: TextConstants.text),
+      body: const ImageView(),
     );
   }
 }
