@@ -29,6 +29,5 @@ class ShowSnackBar extends StatelessWidget {
         child: const Text('Show SnackBar'),
       ),
     );
-    ;
   }
 }
