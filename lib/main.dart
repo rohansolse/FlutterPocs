@@ -38,7 +38,8 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Theme.of(context).colorScheme.inversePrimary,
         title: Text(widget.title),
       ),
-      body: const ExpandableText(text: TextConstants.text),
+      // body: const ExpandableText(text: TextConstants.text),
+      body: const ExpandableText1(text: TextConstants.text, maxLines: 10, minLines: 3),
     );
   }
 }
