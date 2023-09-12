@@ -39,7 +39,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: Text(widget.title),
       ),
       // body: const ExpandableText(text: TextConstants.text),
-      body: const ExpandableText1(text: TextConstants.text, maxLines: 10, minLines: 3),
+      body: const ExpandableText(text: TextConstants.text, maxLines: 100, minLines: 2),
     );
   }
 }
