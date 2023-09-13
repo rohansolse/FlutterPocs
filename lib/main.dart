@@ -72,11 +72,9 @@ class _MyHomePageState extends State<MyHomePage> {
               }
               final x = -position.dx * (scale - 1);
               final y = -position.dy * (scale - 1);
-              final zoomed = Matrix4.identity()
+              controller.value = Matrix4.identity()
                 ..translate(x, y)
                 ..scale(scale);
-              // final value = controller.value.isIdentity() ? zoomed : Matrix4.identity();
-              controller.value = zoomed;
             },
             child: InteractiveViewer(
               clipBehavior: Clip.none,
