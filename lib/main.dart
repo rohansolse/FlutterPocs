@@ -39,8 +39,8 @@ class _MyHomePageState extends State<MyHomePage> {
       body: const Center(
         child: Tooltip(
           message: 'This message is from tooltip...',
-          padding: EdgeInsets.all(20),
-          showDuration: Duration(seconds: 0),
+          padding: EdgeInsets.all(10),
+          showDuration: Duration(seconds: 20),
           decoration: ShapeDecoration(
             color: Colors.grey,
             shape: ToolTipCustomShape(),
