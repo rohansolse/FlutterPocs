@@ -31,6 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   late TransformationController controller;
   TapDownDetails? tapDownDetails;
+  late int zoomedTime = 1;
 
   @override
   void initState() {
@@ -59,14 +60,23 @@ class _MyHomePageState extends State<MyHomePage> {
             onDoubleTapDown: (details) => tapDownDetails = details,
             onDoubleTap: () {
               final position = tapDownDetails!.localPosition;
-              const double scale = 1.5;
+              late double scale;
+              if (zoomedTime == 1) {
+                scale = 1.23;
+                zoomedTime = 2;
+              } else if (zoomedTime == 2) {
+                scale = 1.5;
+                zoomedTime = 0;
+              } else {
+                scale = 1;
+              }
               final x = -position.dx * (scale - 1);
               final y = -position.dy * (scale - 1);
               final zoomed = Matrix4.identity()
                 ..translate(x, y)
                 ..scale(scale);
-              final value = controller.value.isIdentity() ? zoomed : Matrix4.identity();
-              controller.value = value;
+              // final value = controller.value.isIdentity() ? zoomed : Matrix4.identity();
+              controller.value = zoomed;
             },
             child: InteractiveViewer(
               clipBehavior: Clip.none,
