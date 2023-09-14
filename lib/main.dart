@@ -69,6 +69,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 zoomedTime = 0;
               } else {
                 scale = 1;
+                zoomedTime = 1;
               }
               final x = -position.dx * (scale - 1);
               final y = -position.dy * (scale - 1);
