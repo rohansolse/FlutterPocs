@@ -31,7 +31,7 @@ class MyHomePage extends StatefulWidget {
 class _MyHomePageState extends State<MyHomePage> {
   late TransformationController controller;
   TapDownDetails? tapDownDetails;
-  late int zoomedTime = 1;
+  late int zoomedTime = 0;
 
   @override
   void initState() {
@@ -61,15 +61,15 @@ class _MyHomePageState extends State<MyHomePage> {
             onDoubleTap: () {
               final position = tapDownDetails!.localPosition;
               late double scale;
-              if (zoomedTime == 1) {
+              if (zoomedTime == 0) {
                 scale = 1.23;
-                zoomedTime = 2;
-              } else if (zoomedTime == 2) {
+                zoomedTime = 1;
+              } else if (zoomedTime == 1) {
                 scale = 1.5;
-                zoomedTime = 0;
+                zoomedTime = 2;
               } else {
                 scale = 1;
-                zoomedTime = 1;
+                zoomedTime = 0;
               }
               final x = -position.dx * (scale - 1);
               final y = -position.dy * (scale - 1);
