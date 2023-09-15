@@ -6,38 +6,36 @@ class DrawerPage extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return SafeArea(
-      child: Drawer(
-        child: ListView(
-          // Important: Remove any padding from the ListView.
-          padding: EdgeInsets.zero,
-          children: [
-            const DrawerHeader(
-              decoration: BoxDecoration(
-                color: MyColors.primaryColor,
-              ),
-              child: Text('Drawer Header'),
+    return Drawer(
+      child: ListView(
+        // Important: Remove any padding from the ListView.
+        padding: EdgeInsets.zero,
+        children: [
+          const DrawerHeader(
+            decoration: BoxDecoration(
+              color: MyColors.primaryColor,
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.home,
-              ),
-              title: const Text('Page 1'),
-              onTap: () {
-                Navigator.pop(context);
-              },
+            child: Text('Drawer Header'),
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.home,
             ),
-            ListTile(
-              leading: const Icon(
-                Icons.train,
-              ),
-              title: const Text('Page 2'),
-              onTap: () {
-                Navigator.pop(context);
-              },
+            title: const Text('Page 1'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+          ListTile(
+            leading: const Icon(
+              Icons.train,
             ),
-          ],
-        ),
+            title: const Text('Page 2'),
+            onTap: () {
+              Navigator.pop(context);
+            },
+          ),
+        ],
       ),
     );
   }
