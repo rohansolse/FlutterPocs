@@ -1,82 +1,77 @@
-import 'package:float_column_alternative/utils/constants.dart';
+import 'dart:io';
+
+import 'package:float_column_alternative/Model/choice.dart';
+import 'package:float_column_alternative/expanded_cards.dart';
+import 'package:float_column_alternative/utils/cards.dart';
 import 'package:flutter/material.dart';
 
-//imported google's material design library
 void main() {
-  runApp(
-      /**Our App Widget Tree Starts Here**/
-      MaterialApp(
-    home: Scaffold(
-      appBar: AppBar(
-        title: const Text('Lets Build Cards !!!'),
-        backgroundColor: MyColors.primaryColor,
-        centerTitle: true,
-      ), //AppBar
-      body: Center(
-        /** Card Widget **/
-        child: Card(
-          elevation: 50,
-          shadowColor: Colors.black,
-          color: MyColors.primaryColor,
-          child: SizedBox(
-            width: 300,
-            height: 500,
-            child: Padding(
-              padding: const EdgeInsets.all(20.0),
-              child: Column(
-                children: [
-                  CircleAvatar(
-                    backgroundColor: MyColors.secondaryColor,
-                    radius: 108,
-                    child: const CircleAvatar(
-                      backgroundImage: NetworkImage("https://i.pravatar.cc/150?img=2"), //NetworkImage
-                      radius: 100,
-                    ), //CircleAvatar
-                  ), //CircleAvatar
-                  const SizedBox(
-                    height: 10,
-                  ), //SizedBox
-                  Text(
-                    'GeeksforGeeks',
-                    style: TextStyle(
-                      fontSize: 30,
-                      color: MyColors.secondaryColor,
-                      fontWeight: FontWeight.w500,
-                    ), //Textstyle
-                  ), //Text
-                  const SizedBox(
-                    height: 10,
-                  ), //SizedBox
-                  Text(
-                    'GeeksforGeeks is a computer science portal for geeks at geeksforgeeks.org. It contains well written, well thought and well explained computer science and programming articles, quizzes, projects, interview experiences and much more!!',
-                    style: TextStyle(
-                      fontSize: 15,
-                      color: MyColors.secondaryColor,
-                    ), //Textstyle
-                  ), //Text
-                  const SizedBox(
-                    height: 10,
-                  ), //SizedBox
-                  SizedBox(
-                    width: 100,
-                    child: ElevatedButton(
-                      onPressed: () => 'Null',
-                      style: ButtonStyle(backgroundColor: MaterialStateProperty.all(MyColors.primarySecondShadeColor)),
-                      child: const Padding(
-                        padding: EdgeInsets.all(4),
-                        child: Row(
-                          children: [Icon(Icons.touch_app), Text('Visit')],
-                        ),
-                      ),
-                    ),
-                  ) //SizedBox
-                ],
-              ), //Column
-            ), //Padding
-          ), //SizedBox
-        ), //Card
-      ), //Center
-    ), //Scaffold
-  ) //MaterialApp
-      );
+  runApp(const MyApp());
+}
+
+class MyApp extends StatelessWidget {
+  const MyApp({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return MaterialApp(
+      home: Scaffold(
+        appBar: AppBar(
+          title: const Text("Flutter GridView Demo"),
+        ),
+        body: Container(
+          padding: const EdgeInsets.all(8),
+          child: GridView.count(
+            crossAxisCount: 2,
+            crossAxisSpacing: 8.0,
+            mainAxisSpacing: 8.0,
+            children: List.generate(choices.length, (index) {
+              return Center(
+                child: SelectCard(
+                  choice: choices[index],
+                  key: null,
+                ),
+              );
+            }),
+          ),
+        ),
+      ),
+    );
+  }
+}
+
+class SelectCard extends StatelessWidget {
+  const SelectCard({super.key, required this.choice});
+  final Choice choice;
+
+  @override
+  Widget build(BuildContext context) {
+    return Card(
+      color: Colors.blue[400],
+      child: InkWell(
+        onTap: () {
+          print("--here");
+          const ExpandedCards(
+            link: "https://i.pravatar.cc/150?img=2",
+            title: "test",
+            description: "--------------",
+          );
+        },
+        child: Center(
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              Expanded(
+                child: Icon(
+                  choice.icon,
+                  size: 50.0,
+                  color: Colors.white,
+                ),
+              ),
+            ],
+          ),
+        ),
+      ),
+    );
+  }
 }
