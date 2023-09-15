@@ -1,59 +1,51 @@
-import 'package:float_column_alternative/tooltip.dart';
+import 'package:float_column_alternative/constants.dart';
+import 'package:float_column_alternative/drawer.dart';
 import 'package:flutter/material.dart';
 
+// importing material design library
 void main() {
-  runApp(const MyApp());
+  runApp(const MaterialApp(
+    // runApp method
+    home: HomePage(),
+  )); //MaterialApp
 }
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+class HomePage extends StatefulWidget {
+  const HomePage({super.key});
 
+  @override
+  // ignore: library_private_types_in_public_api
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+// value set to false
+
+  final scaffoldKey = GlobalKey<ScaffoldState>();
+// App widget tree
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(
-        colorScheme: ColorScheme.fromSeed(seedColor: Colors.deepPurple),
-        useMaterial3: true,
-      ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
-    );
-  }
-}
-
-class MyHomePage extends StatefulWidget {
-  const MyHomePage({super.key, required this.title});
-  final String title;
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  @override
-  Widget build(BuildContext context) {
-    return Scaffold(
-      appBar: AppBar(
-        backgroundColor: Theme.of(context).colorScheme.inversePrimary,
-        title: Text(widget.title),
-      ),
-      body: const Center(
-        child: Tooltip(
-          message: 'This message is from tooltip...',
-          padding: EdgeInsets.all(10),
-          showDuration: Duration(seconds: 20),
-          decoration: ShapeDecoration(
-            color: Colors.grey,
-            shape: ToolTipCustomShape(),
+      home: Scaffold(
+        key: scaffoldKey,
+        appBar: AppBar(
+          centerTitle: true,
+          title: const Text(
+            'Navigation Drawer',
           ),
-          textStyle: TextStyle(color: Colors.white),
-          preferBelow: false,
-          verticalOffset: 20,
-          child: IconButton(
-            icon: Icon(Icons.info, size: 30.0),
-            onPressed: null,
+          backgroundColor: MyColors.primaryColor,
+        ),
+        drawer: const DrawerPage(),
+        body: const Center(
+          child: Column(
+            children: [
+              SizedBox(
+                height: 50,
+              ),
+            ],
           ),
         ),
       ),
-    );
+    ); //AppBa //MaterialApp
   }
 }
