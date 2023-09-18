@@ -33,39 +33,43 @@ class ExpandedCards extends StatelessWidget {
                         backgroundColor: MyColors.secondaryColor,
                         radius: 108,
                         child: CircleAvatar(
-                          backgroundImage: NetworkImage(link), //NetworkImage
+                          backgroundImage: NetworkImage(link),
                           radius: 100,
-                        ), //CircleAvatar
-                      ), //CircleAvatar
+                        ),
+                      ),
                       const SizedBox(
                         height: 10,
-                      ), //SizedBox
+                      ),
                       Text(
                         title,
                         style: TextStyle(
                           fontSize: 30,
                           color: MyColors.secondaryColor,
                           fontWeight: FontWeight.w500,
-                        ), //Textstyle
-                      ), //Text
+                        ),
+                      ),
                       const SizedBox(
                         height: 10,
-                      ), //SizedBox
+                      ),
                       Text(
                         description,
                         style: TextStyle(
                           fontSize: 15,
                           color: MyColors.secondaryColor,
-                        ), //Textstyle
-                      ), //Text
+                        ),
+                      ),
                       const SizedBox(
                         height: 10,
-                      ), //SizedBox
+                      ),
                       SizedBox(
                         width: 100,
                         child: ElevatedButton(
                           onPressed: () => {Navigator.pop(context)},
-                          style: ButtonStyle(backgroundColor: MaterialStateProperty.all(MyColors.primarySecondShadeColor)),
+                          style: ButtonStyle(
+                            backgroundColor: MaterialStateProperty.all(
+                              MyColors.primarySecondShadeColor,
+                            ),
+                          ),
                           child: const Padding(
                             padding: EdgeInsets.all(4),
                             child: Row(
@@ -76,11 +80,11 @@ class ExpandedCards extends StatelessWidget {
                             ),
                           ),
                         ),
-                      ) //SizedBox
+                      )
                     ],
-                  ), //Column
-                ), //Padding
-              ), //SizedBox
+                  ),
+                ),
+              ),
             ),
           ),
           const SizedBox(height: 12),
@@ -96,6 +100,6 @@ class ExpandedCards extends StatelessWidget {
           ),
         ],
       ),
-    ); //Center;
+    );
   }
 }
