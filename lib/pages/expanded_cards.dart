@@ -1,5 +1,6 @@
 import 'package:float_column_alternative/utils/constants.dart';
 import 'package:flutter/material.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 class ExpandedCards extends StatelessWidget {
   const ExpandedCards({super.key, required this.link, required this.title, required this.description});
@@ -64,7 +65,15 @@ class ExpandedCards extends StatelessWidget {
                       SizedBox(
                         width: 100,
                         child: ElevatedButton(
-                          onPressed: () => {Navigator.pop(context)},
+                          onPressed: () async {
+                            final url = Uri.parse(link);
+                            if (await canLaunchUrl(url)) {
+                              launchUrl(url);
+                            } else {
+                              // ignore: avoid_print
+                              print("Can't launch $url");
+                            }
+                          },
                           style: ButtonStyle(
                             backgroundColor: MaterialStateProperty.all(
                               MyColors.primarySecondShadeColor,
