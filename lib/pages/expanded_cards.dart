@@ -96,17 +96,6 @@ class ExpandedCards extends StatelessWidget {
               ),
             ),
           ),
-          const SizedBox(height: 12),
-          TextButton.icon(
-            onPressed: () {
-              Navigator.pop(context);
-            },
-            icon: const Icon(
-              Icons.arrow_back_rounded,
-              size: 24.0,
-            ),
-            label: const Text('Go Back'),
-          ),
         ],
       ),
     );
