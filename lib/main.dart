@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:float_column_alternative/Model/choice.dart';
 import 'package:float_column_alternative/expanded_cards.dart';
 import 'package:float_column_alternative/utils/cards.dart';
@@ -29,7 +27,6 @@ class MyApp extends StatelessWidget {
               return Center(
                 child: SelectCard(
                   choice: choices[index],
-                  key: null,
                 ),
               );
             }),
@@ -46,29 +43,39 @@ class SelectCard extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return Card(
-      color: Colors.blue[400],
-      child: InkWell(
-        onTap: () {
-          print("--here");
-          const ExpandedCards(
-            link: "https://i.pravatar.cc/150?img=2",
-            title: "test",
-            description: "--------------",
-          );
-        },
-        child: Center(
-          child: Column(
-            crossAxisAlignment: CrossAxisAlignment.center,
-            children: [
-              Expanded(
-                child: Icon(
+    return SafeArea(
+      child: Card(
+        color: Colors.blue[400],
+        child: InkWell(
+          onTap: () {
+            Navigator.push(
+              context,
+              MaterialPageRoute(
+                builder: (context) => ExpandedCards(
+                  link: choice.link,
+                  title: choice.title,
+                  description: choice.description,
+                ),
+              ),
+            );
+          },
+          child: Center(
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                const SizedBox(height: 50),
+                Icon(
                   choice.icon,
                   size: 50.0,
                   color: Colors.white,
                 ),
-              ),
-            ],
+                const SizedBox(height: 20),
+                Text(
+                  choice.title,
+                  style: const TextStyle(color: Colors.white),
+                )
+              ],
+            ),
           ),
         ),
       ),
