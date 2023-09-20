@@ -25,7 +25,7 @@ class BusinessTab extends StatelessWidget {
             color: Colors.black,
             image: const DecorationImage(
               image: AssetImage("assets/images/business.jpg"),
-              fit: BoxFit.fill,
+              fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(

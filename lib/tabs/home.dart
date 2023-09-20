@@ -24,8 +24,8 @@ class HomeTab extends StatelessWidget {
           decoration: BoxDecoration(
             color: Colors.black,
             image: const DecorationImage(
-              image: AssetImage("assets/images/home.jpg"),
-              fit: BoxFit.fill,
+              image: AssetImage("assets/images/home.jpeg"),
+              fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
