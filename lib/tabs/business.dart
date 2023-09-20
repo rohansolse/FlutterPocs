@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Tab3 extends StatelessWidget {
-  const Tab3({super.key});
+class BusinessTab extends StatelessWidget {
+  const BusinessTab({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -12,7 +12,7 @@ class Tab3 extends StatelessWidget {
           "Its Business Page",
           style: TextStyle(
             fontSize: 25,
-            color: Color.fromARGB(255, 241, 226, 6),
+            color: Color.fromARGB(255, 43, 99, 172),
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -23,8 +23,8 @@ class Tab3 extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             image: const DecorationImage(
-              image: AssetImage("images/school.jpg"),
-              fit: BoxFit.cover,
+              image: AssetImage("assets/business.jpg"),
+              fit: BoxFit.fill,
             ),
             borderRadius: BorderRadius.circular(10),
             border: Border.all(
@@ -45,7 +45,7 @@ class Tab3 extends StatelessWidget {
         ),
         const SizedBox(height: 30),
         FloatingActionButton(
-          backgroundColor: const Color.fromARGB(255, 241, 226, 6),
+          backgroundColor: const Color.fromARGB(255, 43, 99, 172),
           foregroundColor: Colors.white,
           onPressed: () => {},
           child: const Icon(Icons.navigation),

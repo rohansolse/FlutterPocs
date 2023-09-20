@@ -55,9 +55,9 @@ class _NavigationExampleState extends State<NavigationExample> {
         ),
         body: Center(
           child: const [
-            Tab1(),
-            Tab2(),
-            Tab3(),
+            HomeTab(),
+            BusinessTab(),
+            SchoolTab(),
           ][currentPageIndex],
         ),
       ),
