@@ -23,7 +23,7 @@ class SchoolTab extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             image: const DecorationImage(
-              image: AssetImage("assets/school.jpg"),
+              image: AssetImage("assets/images/school.jpg"),
               fit: BoxFit.cover,
             ),
             borderRadius: BorderRadius.circular(10),

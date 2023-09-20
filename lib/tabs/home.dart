@@ -23,7 +23,7 @@ class HomeTab extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             image: const DecorationImage(
-              image: AssetImage("assets/home.jpg"),
+              image: AssetImage("assets/images/home.jpg"),
               fit: BoxFit.fill,
             ),
             borderRadius: BorderRadius.circular(10),

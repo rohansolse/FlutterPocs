@@ -23,7 +23,7 @@ class BusinessTab extends StatelessWidget {
           alignment: Alignment.center,
           decoration: BoxDecoration(
             image: const DecorationImage(
-              image: AssetImage("assets/business.jpg"),
+              image: AssetImage("assets/images/business.jpg"),
               fit: BoxFit.fill,
             ),
             borderRadius: BorderRadius.circular(10),
