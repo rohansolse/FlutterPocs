@@ -1,37 +1,73 @@
-import 'package:float_column_alternative/pages/select_card.dart';
-import 'package:float_column_alternative/utils/cards.dart';
 import 'package:flutter/material.dart';
 
-void main() {
-  runApp(const MyApp());
-}
+/// Flutter code sample for [NavigationBar].
 
-class MyApp extends StatelessWidget {
-  const MyApp({super.key});
+void main() => runApp(const NavigationBarApp());
+
+class NavigationBarApp extends StatelessWidget {
+  const NavigationBarApp({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Scaffold(
-        appBar: AppBar(
-          title: const Text("Flutter GridView Demo"),
-        ),
-        body: Container(
-          padding: const EdgeInsets.all(8),
-          child: GridView.count(
-            crossAxisCount: 2,
-            crossAxisSpacing: 8.0,
-            mainAxisSpacing: 8.0,
-            children: List.generate(choices.length, (index) {
-              return Center(
-                child: SelectCard(
-                  choice: choices[index],
-                ),
-              );
-            }),
+    return const MaterialApp(home: NavigationExample());
+  }
+}
+
+class NavigationExample extends StatefulWidget {
+  const NavigationExample({super.key});
+
+  @override
+  State<NavigationExample> createState() => _NavigationExampleState();
+}
+
+class _NavigationExampleState extends State<NavigationExample> {
+  int currentPageIndex = 0;
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      bottomNavigationBar: NavigationBar(
+        onDestinationSelected: (int index) {
+          setState(() {
+            currentPageIndex = index;
+          });
+        },
+        indicatorColor: Colors.amber[800],
+        selectedIndex: currentPageIndex,
+        destinations: const <Widget>[
+          NavigationDestination(
+            selectedIcon: Icon(Icons.home),
+            icon: Icon(Icons.home_outlined),
+            label: 'Home',
           ),
-        ),
+          NavigationDestination(
+            icon: Icon(Icons.business),
+            label: 'Business',
+          ),
+          NavigationDestination(
+            selectedIcon: Icon(Icons.school),
+            icon: Icon(Icons.school_outlined),
+            label: 'School',
+          ),
+        ],
       ),
+      body: <Widget>[
+        Container(
+          color: Colors.red,
+          alignment: Alignment.center,
+          child: const Text('Page 1'),
+        ),
+        Container(
+          color: Colors.green,
+          alignment: Alignment.center,
+          child: const Text('Page 2'),
+        ),
+        Container(
+          color: Colors.blue,
+          alignment: Alignment.center,
+          child: const Text('Page 3'),
+        ),
+      ][currentPageIndex],
     );
   }
 }
