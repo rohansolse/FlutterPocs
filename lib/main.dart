@@ -1,6 +1,9 @@
 // ignore_for_file: avoid_print
 import 'package:flutter/material.dart';
+import 'package:pdf/widgets.dart' as pw;
 import 'package:form_field_validator/form_field_validator.dart';
+import 'package:path_provider/path_provider.dart';
+import 'dart:io';
 
 void main() {
   runApp(const MyApp());
@@ -45,7 +48,7 @@ class _MyCustomFormSate extends State<MyCustomForm> {
       child: SingleChildScrollView(
         child: Form(
           key: _formKey,
-          autovalidateMode: AutovalidateMode.always,
+          autovalidateMode: AutovalidateMode.onUserInteraction,
           child: Column(
             children: [
               TextFormField(
@@ -115,6 +118,7 @@ class _MyCustomFormSate extends State<MyCustomForm> {
                     formObject["phone"] = double.parse(phoneController.text);
                     formObject["password"] = passwordController.text;
                     print(formObject);
+                    exportPdf(formObject.toString());
                   },
                 ),
               ),
@@ -124,4 +128,25 @@ class _MyCustomFormSate extends State<MyCustomForm> {
       ),
     );
   }
+}
+
+void exportPdf(String data) async {
+  final pdf = pw.Document();
+  pdf.addPage(
+    pw.Page(
+      build: (pw.Context context) {
+        return pw.Center(
+          child: pw.Text(
+            data,
+            style: const pw.TextStyle(fontSize: 20),
+          ),
+        );
+      },
+    ),
+  );
+
+  final directory = await getExternalStorageDirectory();
+  final file = File('${directory!.path}/exported_pdf.pdf');
+  print(directory.path);
+  await file.writeAsBytes(await pdf.save());
 }
